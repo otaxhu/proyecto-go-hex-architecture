@@ -8,6 +8,10 @@
 *.so
 *.dylib
 
+# Configuration files
+settings.yaml
+*.env
+
 # Test binary, built with `go test -c`
 *.test
 
