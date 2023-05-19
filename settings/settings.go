@@ -10,18 +10,18 @@ import (
 //go:embed settings.yaml
 var file []byte
 
-func NewDatabase() *Database {
+func NewDatabase() (*Database, error) {
 	settings := &Database{}
 	if err := yaml.Unmarshal(file, settings); err != nil {
-		panic(errors.Wrap(err, "settings.NewDatabase()"))
+		return nil, errors.Wrap(err, "settings.NewDatabase()")
 	}
-	return settings
+	return settings, nil
 }
 
-func NewServer() *Server {
+func NewServer() (*Server, error) {
 	settings := &Server{}
 	if err := yaml.Unmarshal(file, settings); err != nil {
-		panic(errors.Wrap(err, "settings.NewServer()"))
+		return nil, errors.Wrap(err, "settings.NewServer()")
 	}
-	return settings
+	return settings, nil
 }

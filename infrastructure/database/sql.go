@@ -2,15 +2,15 @@ package database
 
 import (
 	"context"
+	"database/sql"
 	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/jmoiron/sqlx"
 	"github.com/otaxhu/proyecto-go-hex-architecture/settings"
 	"github.com/pkg/errors"
 )
 
-func NewSqlConnection(ctx context.Context, settings *settings.Database) *sqlx.DB {
+func NewSqlConnection(ctx context.Context, settings *settings.Database) (*sql.DB, error) {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s",
 		settings.User,
 		settings.Password,
@@ -18,9 +18,9 @@ func NewSqlConnection(ctx context.Context, settings *settings.Database) *sqlx.DB
 		settings.Port,
 		settings.Name,
 	)
-	db, err := sqlx.ConnectContext(ctx, settings.Driver, dsn)
+	db, err := sql.Open(settings.Driver, dsn)
 	if err != nil {
-		panic(errors.Wrap(err, "infrastructure.database.NewConnection()"))
+		return nil, errors.Wrap(err, "infrastructure.database.NewSqlConnection()")
 	}
-	return db
+	return db, nil
 }

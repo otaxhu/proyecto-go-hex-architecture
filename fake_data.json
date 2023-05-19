@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "Producto 1",
+        "description": "Descripción del producto 1",
+        "stock": 10,
+        "price": 9.99,
+        "provider": {
+            "id": 1,
+            "name": "Proveedor 1",
+            "region": "Región 1"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Producto 2",
+        "description": "Descripción del producto 2",
+        "stock": 5,
+        "price": 19.99,
+        "provider": {
+            "id": 1,
+            "name": "Proveedor 1",
+            "region": "Región 1"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Producto 3",
+        "description": "Descripción del producto 3",
+        "stock": 2,
+        "price": 4.99,
+        "provider": {
+            "id": 2,
+            "name": "Proveedor 2",
+            "region": "Región 2"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Producto 4",
+        "description": "Descripción del producto 4",
+        "stock": 8,
+        "price": 14.99,
+        "provider": {
+            "id": 3,
+            "name": "Proveedor 3",
+            "region": "Región 1"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Producto 5",
+        "description": "Descripción del producto 5",
+        "stock": 3,
+        "price": 7.99,
+        "provider": {
+            "id": 2,
+            "name": "Proveedor 2",
+            "region": "Región 2"
+        }
+    },
+    {
+        "id": 6,
+        "name": "Producto 6",
+        "description": "Descripción del producto 6",
+        "stock": 0,
+        "price": 29.99,
+        "provider": {
+            "id": 4,
+            "name": "Proveedor 4",
+            "region": "Región 3"
+        }
+    },
+    {
+        "id": 7,
+        "name": "Producto 7",
+        "description": "Descripción del producto 7",
+        "stock": 12,
+        "price": 12.99,
+        "provider": {
+            "id": 5,
+            "name": "Proveedor 5",
+            "region": "Región 2"
+        }
+    },
+    {
+        "id": 8,
+        "name": "Producto 8",
+        "description": "Descripción del producto 8",
+        "stock": 6,
+        "price": 9.99,
+        "provider": {
+            "id": 4,
+            "name": "Proveedor 4",
+            "region": "Región 3"
+        }
+    },
+    {
+        "id": 9,
+        "name": "Producto 9",
+        "description": "Descripción del producto 9",
+        "stock": 4,
+        "price": 6.99,
+        "provider": {
+            "id": 3,
+            "name": "Proveedor 3",
+            "region": "Región 1"
+        }
+    },
+    {
+        "id": 10,
+        "name": "Producto 10",
+        "description": "Descripción del producto 10",
+        "stock": 7,
+        "price": 24.99,
+        "provider": {
+            "id": 5,
+            "name": "Proveedor 5",
+            "region": "Región 2"
+        }
+    }
+]

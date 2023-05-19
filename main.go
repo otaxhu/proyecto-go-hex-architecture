@@ -2,17 +2,28 @@ package main
 
 import (
 	"context"
+	"fmt"
 
-	"github.com/otaxhu/proyecto-go-hex-architecture/infrastructure/database"
+	"github.com/otaxhu/proyecto-go-hex-architecture/domain/repository"
+	"github.com/otaxhu/proyecto-go-hex-architecture/domain/repository/ordering"
 	"github.com/otaxhu/proyecto-go-hex-architecture/settings"
-	"github.com/pkg/errors"
 )
 
 func main() {
 	ctx := context.Background()
-	settingsDb := settings.NewDatabase()
-	db := database.NewSqlConnection(ctx, settingsDb)
-	if err := db.PingContext(ctx); err != nil {
-		panic(errors.Wrap(err, "main.go"))
+	settingsDatabase, err := settings.NewDatabase()
+	if err != nil {
+		panic(err)
+	}
+	repo, err := repository.NewProductsRepository(ctx, settingsDatabase)
+	if err != nil {
+		panic(err)
+	}
+	products, err := repo.GetProducts(ctx, 1, 1, ordering.OrderByIdAsc)
+	if err != nil {
+		panic(err)
+	}
+	for _, p := range products {
+		fmt.Printf("%#v", p)
 	}
 }

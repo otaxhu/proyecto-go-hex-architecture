@@ -10,12 +10,12 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func NewMongoConnection(ctx context.Context, settings *settings.Database) *mongo.Database {
-	uri := fmt.Sprintf("")
+func NewMongoConnection(ctx context.Context, settings *settings.Database) (*mongo.Database, error) {
+	uri := fmt.Sprintf("%s://%s:%d", settings.Driver, settings.Host, settings.Port)
 	opts := options.Client().ApplyURI(uri)
 	client, err := mongo.Connect(ctx, opts)
 	if err != nil {
-		panic(errors.Wrap(err, "infrastructure.database.NewMongoConnection()"))
+		return nil, errors.Wrap(err, "infrastructure.database.NewMongoConnection()")
 	}
-	return client.Database(settings.Name)
+	return client.Database(settings.Name), nil
 }

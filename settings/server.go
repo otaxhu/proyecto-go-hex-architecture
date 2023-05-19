@@ -1,5 +1,5 @@
 package settings
 
 type Server struct {
-	Port int `yaml:"port"`
+	Port uint `yaml:"server_port"`
 }
